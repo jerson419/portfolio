@@ -4,7 +4,7 @@ export default function Hero() {
     return (
         <section className="hero relative w-full h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-background">
             {/* Background Graphic / Placeholder for Person */}
-            <div className="absolute top-0 right-0 w-full h-full md:w-2/3 opacity-40 md:opacity-100 mix-blend-screen pointer-events-none">
+            <div className="hero-img absolute top-0 right-0 w-full h-full md:w-2/3 opacity-40 md:opacity-100 mix-blend-screen pointer-events-none">
                 <Image
                     src="/hero-image.jpg"
                     alt="Jerson Sabellano - Software Engineer"
@@ -39,7 +39,7 @@ export default function Hero() {
 
             </div>
 
-            <div className="absolute bottom-10 left-6 md:left-12 text-xs text-gray-600 animate-bounce">
+            <div className="absolute bottom-15 left-1/2 -translate-x-1/2 text-xs text-gray-600 animate-bounce">
                 (Scroll down)
             </div>
         </section>

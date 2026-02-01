@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Projects() {
     return (
-        <section id="projects" className="py-24 bg-black text-white px-6 md:px-12">
+        <section id="projects" className="py-12 bg-black text-white px-6 md:px-12">
             <div className="flex justify-between items-center text-xs tracking-widest text-gray-500 uppercase mb-16 border-b border-gray-800 pb-4">
                 <span>Projects</span>
                 <span>2021 - Present</span>
