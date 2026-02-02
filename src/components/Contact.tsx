@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Contact() {
     return (
-        <section id="contact" className="py-12 px-6 md:px-12 bg-background text-white">
+        <section id="contact" className="relative py-12 px-6 md:px-12 bg-background text-white">
             <div className="text-center max-w-4xl mx-auto mb-20">
                 <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-snug">
                     <span className="text-gray-500">open to exciting projects, collaborations, and creative ideas. 🎨</span>
@@ -14,13 +14,12 @@ export default function Contact() {
             <div className="grid md:grid-cols-3 gap-6">
                 {/* Card 1: Hire Now */}
                 <div className="bg-gray-900/50 p-8 rounded-2xl flex flex-col justify-between aspect-square md:aspect-auto md:min-h-[400px] hover:bg-gray-900 transition-colors">
-                    <div className="bg-white text-black text-xs font-bold px-3 py-1 rounded inline-block w-max">Team</div>
+                    <div className="w-max"><span className="waving-hand text-6xl">👋</span></div>
 
                     <div>
                         <h3 className="text-2xl font-bold mb-8">— Ready to bring your ideas to life?</h3>
-                        <p className="text-xs font-bold text-gray-500 mb-4 uppercase tracking-wider">Hire Now!</p>
-                        <Link href="mailto:hello@example.com" className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors">
-                            Let&apos;s Contact &rarr;
+                        <Link href="mailto:jerson419@gmail.com" className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors">
+                            Let&apos;s Connect &rarr;
                         </Link>
                     </div>
                 </div>
@@ -33,7 +32,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                        <h3 className="text-6xl font-bold mb-2">97%</h3>
+                        <h3 className="text-6xl font-bold mb-2">99%</h3>
                         <p className="text-sm font-medium opacity-70">Clients Satisfaction</p>
                     </div>
                 </div>
@@ -44,7 +43,7 @@ export default function Contact() {
                         Collaborative, and designed to make you feel confident at every stage.
                     </p>
                     <div className="text-right">
-                        <Link href="#" className="text-xs font-bold hover:underline">Learn More &rarr;</Link>
+                        <Link href="mailto:jerson419@gmail.com" className="text-xs font-bold hover:underline">Learn More &rarr;</Link>
                     </div>
                 </div>
             </div>

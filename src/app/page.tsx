@@ -4,11 +4,13 @@ import { ScrambleTextPlugin } from 'gsap/dist/ScrambleTextPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Lenis from 'lenis';
 import { useEffect, useRef } from "react";
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Experience from '@/components/Experience';
-import Projects from '@/components/Projects';
+//import Projects from '@/components/Projects';
+import ProjectScroll from '@/components/ProjectScroll';
 import Contact from '@/components/Contact';
 import PageReveal from '@/components/PageReveal';
 
@@ -16,16 +18,32 @@ gsap.registerPlugin(useGSAP, ScrambleTextPlugin, ScrollTrigger);
 
 export default function Home() {
   const container = useRef(null);
-  const lenisRef = useRef<any>(null);
-  // useEffect(() => {
-  //   function update(time: number) {
-  //     lenisRef.current?.raf(time * 1000)
-  //   }
+  const lenisRef = useRef<Lenis | null>(null);
 
-  //   gsap.ticker.add(update)
+  useEffect(() => {
+    // Force scroll to top on load/reload
+    if (typeof window !== 'undefined') {
+      window.history.scrollRestoration = 'manual';
+      window.scrollTo(0, 0);
+    }
 
-  //   return () => gsap.ticker.remove(update)
-  // }, [])
+    const lenis = new Lenis();
+    lenisRef.current = lenis;
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      gsap.ticker.remove((time) => lenis.raf(time * 1000));
+      lenis.destroy();
+    };
+  }, []);
+
   useGSAP(() => {
     const tl = gsap.timeline();
     const scrambleChars = 'upperAndLowerCase';
@@ -126,7 +144,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Experience />
-      <Projects />
+      <ProjectScroll />
       <Contact />
     </main>
 
